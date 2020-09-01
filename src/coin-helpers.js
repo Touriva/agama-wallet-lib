@@ -1,7 +1,7 @@
-const _komodoAssetChains = [
+const _safecoinAssetChains = [
   'PIRATE',
   'CCL',
-  'KMDICE',
+  'SAFEICE',
   'MGNX',
   'DION',
   'PTX',
@@ -38,16 +38,16 @@ const _komodoAssetChains = [
   'VRSC',
 ];
 
-const _komodoCoins = _komodoAssetChains.concat([
+const _safecoinCoins = _safecoinAssetChains.concat([
   'CHIPS',
-  'KMD',
-  'KOMODO'
+  'SAFE',
+  'SAFECOIN'
 ]);
 
-const isKomodoCoin = (coin, skipKMD) => {
-  return (_komodoCoins.find((element) => {
-    if (skipKMD) {
-      return element === coin.toUpperCase() && coin.toUpperCase() !== 'KMD' && coin.toUpperCase() !== 'KOMODO';
+const isSafeCoin = (coin, skipSAFE) => {
+  return (_safecoinCoins.find((element) => {
+    if (skipSAFE) {
+      return element === coin.toUpperCase() && coin.toUpperCase() !== 'SAFE' && coin.toUpperCase() !== 'SAFECOIN';
     } else {
       return element === coin.toUpperCase();
     }
@@ -56,39 +56,36 @@ const isKomodoCoin = (coin, skipKMD) => {
 
 // TODO: add at least 2 explorers per coin
 const explorerList = {
-  KMD: 'https://www.kmdexplorer.io',
-  KV: 'https://kv.kmdexplorer.io',
+  SAFE: 'https://www.safeexplorer.io',
+  KV: 'https://kv.safeexplorer.io',
   OOT: 'http://explorer.utrum.io',
   BNTN: 'http://chain.blocnation.io',
   CHAIN: 'http://explorer.chainmakers.co',
   GLXT: 'http://glx.info',
   PRLPAY: 'http://explorer.prlpay.com',
-  MSHARK: 'https://mshark.kmdexplorer.io',
-  REVS: 'https://revs.kmdexplorer.io',
-  SUPERNET: 'https://supernet.kmdexplorer.io',
-  DEX: 'https://dex.kmdexplorer.io',
-  PANGEA: 'https://pangea.kmdexplorer.io',
-  JUMBLR: 'https://jumblr.kmdexplorer.io',
-  BET: 'https://bet.kmdexplorer.io',
-  CRYPTO: 'https://crypto.kmdexplorer.io',
-  HODL: 'https://hodl.kmdexplorer.io',
+  MSHARK: 'https://mshark.safeexplorer.io',
+  REVS: 'https://revs.safeexplorer.io',
+  SUPERNET: 'https://supernet.safeexplorer.io',
+  DEX: 'https://dex.safeexplorer.io',
+  PANGEA: 'https://pangea.safeexplorer.io',
+  JUMBLR: 'https://jumblr.safeexplorer.io',
+  BET: 'https://bet.safeexplorer.io',
+  CRYPTO: 'https://crypto.safeexplorer.io',
+  HODL: 'https://hodl.safeexplorer.io',
   SHARK: 'http://SHARK.explorer.supernet.org',
-  BOTS: 'https://bots.kmdexplorer.io',
-  MGW: 'https://mgw.kmdexplorer.io',
-  WLC: 'https://wlc.kmdexplorer.io',
+  BOTS: 'https://bots.safeexplorer.io',
+  MGW: 'https://mgw.safeexplorer.io',
+  WLC: 'https://wlc.safeexplorer.io',
   CHIPS: 'http://CHIPS1.explorer.supernet.org',
   COQUI: 'https://explorer.coqui.cash',
   EQL: 'http://178.62.240.191',
-  MNZ: 'https://mnz.kmdexplorer.io',
-  BTCH: 'https://btch.kmdexplorer.io',
+  MNZ: 'https://mnz.safeexplorer.io',
+  BTCH: 'https://btch.safeexplorer.io',
   BTC: 'https://blockchain.info',
   HUSH: 'https://explorer.myhush.org',
-  PIZZA: 'http://pizza.komodochainz.info',
-  BEER: 'http://beer.komodochainz.info',
-  NINJA: 'https://ninja.kmdexplorer.io',
-  VOTE2018: 'http://88.99.226.252',
-  DSEC: 'https://dsec.kmdexplorer.io',
-  VRSC: 'https://vrsc.kmdexplorer.io',
+  NINJA: 'https://ninja.safeexplorer.io',
+  DSEC: 'https://dsec.safeexplorer.io',
+  TOUR: 'https://tour.safeexplorer.io',
   QTUM: 'https://explorer.qtum.org',
   DNR: 'http://denarius.name',
   LTC: 'https://live.blockcypher.com/ltc/tx/',
@@ -126,7 +123,6 @@ const explorerList = {
   BSD: 'https://chainz.cryptoid.info/bsd/search.dws?q=',
   ERC: 'https://chainz.cryptoid.info/erc/search.dws?q=',
   SYS: 'https://chainz.cryptoid.info/sys/search.dws?q=',
-  EMC2: 'https://chainz.cryptoid.info/emc2/search.dws?q=',
   IXC: 'https://chainz.cryptoid.info/ixc/search.dws?q=',
   DGC: 'https://chainz.cryptoid.info/dgc/search.dws?q=',
   VOX: 'http://206.189.74.116:3001',
@@ -141,25 +137,18 @@ const explorerList = {
   FLASH: 'https://explorer.flashcoin.io',
   ZILLA: 'http://zilla.explorer.dexstats.info',
   XZC: 'https://explorer.zcoin.io',
-  VRSC: 'https://explorer.veruscoin.io',
-  PIRATE: 'https://pirate.kmdexplorer.io',
-  CCL: 'https://ccl.kmdexplorer.io',
-  KMDICE: 'https://veruscoin.io/explorernotfound',
-  MGNX: 'http://mgnx.explorer.dexstats.info',
-  DION: 'https://explorer.dionpay.com',
-  PTX: 'https://veruscoin.io/explorernotfound',
-  ZEX: 'https://veruscoin.io/explorernotfound',
+  TOUR: 'https://explorer.tour.io',
 };
 
 const explorerListExt = {
-  DEX: 'http://dex.explorer.komodo.services',
-  SUPERNET: 'http://supernet.explorer.komodo.services',
+  DEX: 'http://dex.explorer.safecoin.services',
+  SUPERNET: 'http://supernet.explorer.safecoin.services',
 };
 
 module.exports = {
-  isKomodoCoin,
+  isSafeCoin,
   explorerList,
   explorerListExt,
-  kmdAssetChains: _komodoAssetChains,
-  kmdCoins: _komodoCoins, // all coins that share R-addresses
+  safeAssetChains: _safecoinAssetChains,
+  safeCoins: _safecoinCoins, // all coins that share R-addresses
 };

@@ -1,4 +1,4 @@
-const transactionType = (tx, targetAddress, isKomodo, skipTargetAddress) => {
+const transactionType = (tx, targetAddress, isSafeCoin, skipTargetAddress) => {
   // TODO: - sum vins / sum vouts to the same address
   //       - multi vin multi vout
   //       - detect change address
@@ -96,7 +96,7 @@ const transactionType = (tx, targetAddress, isKomodo, skipTargetAddress) => {
         confirmations: tx.confirmations,
       };
 
-      if (isKomodo) { // calc claimed interest amount
+      if (isSafeCoin) { // calc claimed interest amount
         const vinVoutDiff = _total.inputs - _total.outputs;
 
         if (vinVoutDiff < 0) {
@@ -124,7 +124,7 @@ const transactionType = (tx, targetAddress, isKomodo, skipTargetAddress) => {
         outputAddresses: _addresses.outputs,
       }];
 
-      if (isKomodo) { // calc claimed interest amount
+      if (isSafeCoin) { // calc claimed interest amount
         const vinVoutDiff = _total.inputs - _total.outputs;
 
         if (vinVoutDiff < 0) {

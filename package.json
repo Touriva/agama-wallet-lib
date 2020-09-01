@@ -5,7 +5,7 @@
   "keywords": [
     "agama wallet",
     "wallet",
-    "komodo",
+    "safecoin",
     "supernet"
   ],
   "homepage": "https://github.com/VerusCoin/agama-wallet-lib",
@@ -33,7 +33,7 @@
     "bluebird": "^3.4.7",
     "bitcoinforksjs-lib": "git+https://github.com/SuperNETorg/bitcoinjs-lib.git#opt-in-bitcoincash-sighash",
     "bitcoinjs-lib": "git+https://github.com/SuperNETorg/bitcoinjs-lib.git",
-    "bitcoinjs-lib-pos": "git+https://github.com/KomodoPlatform/bitcoinjs-lib-pos.git",
+    "bitcoinjs-lib-pos": "git+https://github.com/SafeCoinPlatform/bitcoinjs-lib-pos.git",
     "bitcoinjs-lib-zcash": "git+https://github.com/pbca26/bitcoinjs-lib.git#zcash",
     "buffer-reverse": "^1.0.1",
     "coinselect": "github:bitcoinjs/coinselect",

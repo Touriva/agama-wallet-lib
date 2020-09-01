@@ -167,10 +167,10 @@ const electrumServers = {
       'el1.vrsc.0x03.services:10000:tcp'
     ],
   },
-  verustest: {
+  tourtest: {
     txfee: 10000,
     serverList: [
-      'veruscoin-dev.0x03.services:11000:tcp',
+      '', //add server
     ],
   },
   beer: {
@@ -208,11 +208,11 @@ const electrumServers = {
       'electrum2.cipig.net:10004:tcp'
     ],
   },
-  kmd: {
+  safe: {
     txfee: 10000,
     serverList: [
-      'electrum1.cipig.net:10001:tcp',
-      'electrum2.cipig.net:10001:tcp',
+      '',
+      '', // add servers
     ],
   },
   doge: {

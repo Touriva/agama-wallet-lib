@@ -64,7 +64,7 @@ const transaction = (sendTo, changeAddress, wif, network, utxo, changeValue, spe
     tx.setVersion(2);
   }
 
-  if (network.kmdInterest) {
+  if (network.safeInterest) {
     const _locktime = Math.floor(Date.now() / 1000) - 777;
     tx.setLockTime(_locktime);
   }
@@ -104,7 +104,7 @@ const data = (network, value, fee, outputAddress, changeAddress, utxoList) => {
     let utxoVerified = true;
 
     for (let i = 0; i < utxoList.length; i++) {
-      if (network.kmdInterest) {
+      if (network.safeInterest) {
         utxoListFormatted.push({
           txid: utxoList[i].txid,
           vout: utxoList[i].vout,
@@ -193,8 +193,8 @@ const data = (network, value, fee, outputAddress, changeAddress, utxoList) => {
     if (value > _maxSpend) {
       return `Spend value is too large. Max available amount is ${Number(((_maxSpend * 0.00000001).toFixed(8)))}`;
     } else {
-      // account for KMD interest
-      if (network.kmdInterest &&
+      // account for SAFE interest
+      if (network.safeInterest &&
           totalInterest > 0) {
         // account for extra vout
 
@@ -209,7 +209,7 @@ const data = (network, value, fee, outputAddress, changeAddress, utxoList) => {
           _change += totalInterest;
         }
 
-        // double check kmd interest is combined into 1 output
+        // double check safe interest is combined into 1 output
         if (outputAddress === changeAddress &&
             _change > 0) {
           value += _change - fee;

@@ -20,7 +20,7 @@ const parseWalletdat = (data) => {
       const keyObj = wif.decode(key);
       const wifKey = wif.encode(keyObj);
 
-      const keyPair = shepherd.bitcoinJS.ECPair.fromWIF(wifKey, shepherd.electrumJSNetworks.komodo);
+      const keyPair = shepherd.bitcoinJS.ECPair.fromWIF(wifKey, shepherd.electrumJSNetworks.safecoin);
       const _keyPair = {
         priv: keyPair.toWIF(),
         pub: keyPair.getAddress(),

@@ -2,7 +2,7 @@
   Bitcoinjs-lib network params file
 */
 
-// TODO: runtime extend for kmd assets
+// TODO: runtime extend for safe assets
 
 const bitcoin = require('bitcoinjs-lib');
 
@@ -90,9 +90,9 @@ let networks = {
     dustThreshold: 1000, // https://github.com/zcoinofficial/zcoin/blob/f755f95a036eedfef7c96bcfb6769cb79278939f/src/main.h#L59,
     isZcash: true,
   },
-  // https://raw.githubusercontent.com/jl777/komodo/beta/src/chainparams.cpp
-  kmd: {
-    messagePrefix: '\x19Komodo Signed Message:\n',
+  // https://raw.githubusercontent.com/jl777/safecoin/beta/src/chainparams.cpp
+  safe: {
+    messagePrefix: '\x19SafeCoin Signed Message:\n',
     bip32: {
       public: 0x0488b21e,
       private: 0x0488ade4,
@@ -102,7 +102,7 @@ let networks = {
     wif: 0xbc,
     dustThreshold: 1000,
     isZcash: true,
-    kmdInterest: true,
+    safeInterest: true,
   },
   via: {
     messagePrefix: '\x19Viacoin Signed Message:\n',

@@ -6,7 +6,7 @@ const time = require('./time');
 const crypto = require('./crypto/index-fe');
 const utils = require('./utils');
 const keys = require('./keys');
-const komodoInterest = require('./komodo-interest');
+const safecoinInterest = require('./safecoin-interest');
 const transactionBuilder = require('./transaction-builder');
 const transactionType = require('./transaction-type');
 const getMerkleRoot = require('./transaction-merkle');
@@ -19,7 +19,7 @@ module.exports = {
   time,
   crypto,
   utils,
-  komodoInterest,
+  safecoinInterest,
   transactionBuilder,
   transactionType,
   getMerkleRoot,
